@@ -1,0 +1,22 @@
+//UserProfile
+
+1. UseEffect dependency is empty, compontent won't re-fetch when userId changes.
+         useEffect(()=>{...},[userId])
+
+2.useState<any> can loose typescript benefits. we can define user type for Type Safety.
+   -- we can use null to prevent runtime errors.
+   type User ={
+    id: number;
+    name: string;
+    bio: string;
+   }
+
+   const [user, setUser] = useState<User| null>(null);
+
+3. null used for both loading and no data/ error. It may get chance to miss error.
+   --  If loading or error is there means, we can get clear UI states and easy to test.
+
+
+//TEST COVERAGE
+
+1. we can also cover loading, sucess, network error.
